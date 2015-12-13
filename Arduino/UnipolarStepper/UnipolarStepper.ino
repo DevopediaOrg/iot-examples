@@ -27,6 +27,9 @@
 // Comment/uncomment as suitable for your hardware
 // #define LaunchPadF5529
 
+// AccelStepper:
+// http://www.airspayce.com/mikem/arduino/AccelStepper/
+
 // Motor pins
 #ifdef LaunchPadF5529
 #define motorPin1 P8_2
