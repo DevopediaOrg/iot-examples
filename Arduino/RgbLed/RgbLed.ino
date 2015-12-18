@@ -12,7 +12,8 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
   ---------------------------------------------------------------------
-  Purpose : Change colours on an RGB LED.
+  Purpose : Change colours on an RGB LED. PWM is used to control the
+            colours. Hence, pins must be capable of PWM out.
   Date    : 21 Nov 2015
   Boards  : ArduinoUno, LaunchPadF5529
   =====================================================================
@@ -26,16 +27,17 @@
 #define G_LED P2_4
 #define B_LED P1_5
 #else
-#define R_LED 2
-#define G_LED 3
-#define B_LED 4
+#define R_LED 3
+#define G_LED 5
+#define B_LED 6
 #endif
 
 void setup() {                
 }
 
 void loop() {
-  // Use sin() to obtain smooth transitions
+  // Use sin() to obtain smooth transitions: to keep the channels
+  // out of phase, add an arbitrary phase offset.
   // For abrupt transitions, try random(255)
   for (unsigned char i=0; i<256; i+=5) {
     analogWrite(R_LED, map(1000*sin(i*2*PI/255),-1000,1000,255,0));
