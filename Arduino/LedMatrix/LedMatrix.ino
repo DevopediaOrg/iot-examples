@@ -14,18 +14,26 @@
   ---------------------------------------------------------------------
   Purpose : Drive an 8x8 LED matrix without any IC.
   Date    : 13 Dec 2015
-  Boards  : ArduinoUno
+  Boards  : ArduinoUno, LaunchPadF5529
   =====================================================================
 */
 
 // Adapted from:
 // Arduino Cookbook by Michael Margolis. 2011. Section 7.8
 
+// Comment/uncomment as suitable for your hardware
+// #define LaunchPadF5529
+
 // Wiring connections from uC to display: (below are pin numbers on display):
 // Columns on LED (left to right): 13, 3, 4, 10, 6, 11, 15, 16
 // Rows on LED (top to bottom): 5, 2, 7, 1, 12, 8, 14, 9
+#ifdef LaunchPadF5529
+const int columnPins[] = {P2_5, P2_4, P1_5, P1_4, P1_3, P1_2, P4_3, P4_0};
+const int rowPins[] = {P2_0, P2_2, P7_4, P2_6, P2_3, P8_1, P3_7, P8_2};
+#else
 const int columnPins[] = {2, 3, 4, 5, 6, 7, 8, 9};
 const int rowPins[] = {19, 18, 17, 16, 15, 12, 11, 10};
+#endif
 
 #define ROW_CATHODE
 #ifdef ROW_CATHODE
