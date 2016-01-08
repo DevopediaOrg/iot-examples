@@ -12,7 +12,8 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
   ---------------------------------------------------------------------
-  Purpose : Blink two LEDs alternatively.
+  Purpose : Blink two LEDs alternatively. One LED is on the board and
+            the other is connected externally.
   Date    : 21 Nov 2015
   Boards  : ArduinoUno, LaunchPadF5529
   =====================================================================
