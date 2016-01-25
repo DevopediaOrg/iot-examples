@@ -13,7 +13,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
   ---------------------------------------------------------------------
   Purpose : Detect door open/close events using a reed switch.
-						This example shows how to write interrupt code.
+            This example shows how to write interrupt code.
   Date    : 21 Nov 2015
   Boards  : ArduinoUno, LaunchPadF5529
   =====================================================================
@@ -58,6 +58,7 @@ void loop() {
     }
     stateChange = false;
   }
+  delay(1000);
 }
 
 void onDoorOpen() {
@@ -65,10 +66,10 @@ void onDoorOpen() {
   if ((long)(millis() - interruptTs) >= 0) {
     interruptTs = millis();
 
-		// Note the state, print later.
+    // Note the state, print later.
     // Serial cannot be used here since further
     // interrupts are disabled within an ISR.
-		// It is also good design to do minimal stuff
+    // It is also good design to do minimal stuff
     // within ISR.
     stateChange = true;
     doorOpen = digitalRead(reedSwitch);
