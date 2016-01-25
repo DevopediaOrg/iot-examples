@@ -12,9 +12,11 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
   ---------------------------------------------------------------------
-  Purpose : Detect door open/close events using a reed switch.
-            This example shows how to write interrupt code.
-  Date    : 21 Nov 2015
+  Purpose : Detect door open/close events using a hall effect sensor.
+            Note that the orientation of the magnet (North pole or
+            South pole) matters. This example shows how to write
+            interrupt code.
+  Date    : 25 Jan 2016
   Boards  : ArduinoUno, LaunchPadF5529
   =====================================================================
 */
@@ -23,10 +25,10 @@
 // #define LaunchPadF5529
 
 #ifdef LaunchPadF5529
-int reedSwitch = P2_4; // pins of P1 and P2 are interrupt capable
+int hallSwitch = P2_4; // pins of P1 and P2 are interrupt capable
 #else
 // Ref. https://www.arduino.cc/en/Reference/AttachInterrupt
-int reedSwitch = 2; // pins 2 and 3 are interrupt capable on Uno
+int hallSwitch = 2; // pins 2 and 3 are interrupt capable on Uno
 #endif
 
 boolean prevDoorOpen = false;
@@ -39,12 +41,12 @@ volatile int interruptTs = 0;
 
 void setup() {
   Serial.begin(115200);
-  pinMode(reedSwitch, INPUT_PULLUP);
+  pinMode(hallSwitch, INPUT_PULLUP);
 
   #ifdef LaunchPadF5529
-  attachInterrupt(reedSwitch, onDoorOpen, CHANGE);
+  attachInterrupt(hallSwitch, onDoorOpen, CHANGE);
   #else
-  attachInterrupt(digitalPinToInterrupt(reedSwitch), onDoorOpen, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(hallSwitch), onDoorOpen, CHANGE);
   #endif
 }
 
@@ -72,6 +74,6 @@ void onDoorOpen() {
     // It is also good design to do minimal stuff
     // within ISR.
     stateChange = true;
-    doorOpen = digitalRead(reedSwitch);
+    doorOpen = digitalRead(hallSwitch);
   }
 }
