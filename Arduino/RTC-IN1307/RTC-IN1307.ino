@@ -73,6 +73,7 @@ DateTime* readInputTime()
 void setup()
 {
   Serial.begin(9600);
+  Serial.println(F("Initializing ..."));
   Wire.begin();
   RTC.begin();
 
@@ -85,6 +86,10 @@ void setup()
     // For a start, set time based on when this code was compiled
     RTC.adjust(DateTime(__DATE__, __TIME__));
   }
+  
+  // Try out 12-hour format, assuming 5 PM
+  // RTC.writeByteInRam(0x02, 0x65);
+  // delay(10);
 }
 
 void loop()
