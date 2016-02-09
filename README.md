@@ -328,6 +328,7 @@ are typed.
 <table><tr>
 <td>
 <br><img src="Arduino/UnipolarStepper/UnipolarStepper_bb.png" width=320px>
+<br><img src="Arduino/UnipolarStepper/UnipolarStepper-ULN2003_bb.png" width=320px>
 
 </td>
 <td>
