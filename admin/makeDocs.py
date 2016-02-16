@@ -37,8 +37,11 @@ def get_project_fields(sketch, images):
     with open(sketch, 'r') as sk:
         content = sk.read()
 
-    # Extract fields from sketch content    
-    purpose, boards = re.findall(r'Purpose\s*:\s*(.*?)Date\s*:\s*.*?Boards\s*:\s*(.*?)\n', content, re.S)[0]
+    # Extract fields from sketch content
+    found = re.findall(r'Purpose\s*:\s*(.*?)Date\s*:\s*.*?Boards\s*:\s*(.*?)\n', content, re.S)
+    if not found: return None
+
+    purpose, boards = found[0]
     purpose = re.sub(r'\n\s*', r'\n', purpose) # remove leading spaces in each line
     name = os.path.splitext(os.path.basename(sketch))[0]
 
@@ -50,6 +53,8 @@ def get_project_fields(sketch, images):
 
 
 def print_project(of, fields):
+    if not fields: return
+
     of.write('\n## {}\n'.format(fields['name']));
     of.write('<table><tr>\n');
     of.write('<td>\n');
