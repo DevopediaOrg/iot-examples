@@ -20,8 +20,6 @@
   =====================================================================
 */
 
-// Source: Kristian Gohlke / krigoo@gmail.com / http://krx.at
-
 // Comment/uncomment as suitable for your hardware
 // #define LaunchPadF5529
 
@@ -33,11 +31,18 @@ int pirPin = 3;
 int ledPin = 13;
 #endif
 
-int calibrationTime = 30; // 10-60 secs in datasheet
-long unsigned int motionStartTs; // timestamp of start of motion
-long unsigned int pauseInterval = 5000; // idle time in ms to end current motion event
-boolean lockLow = true;
-boolean takeLowTime;  
+typedef enum {
+  NONE, // sensor is not ready for use
+  INIT, // sensor is being initialized
+  STILL, // sensor is detecting no motion
+  MOTION, // sensor is detecting motion
+  PAUSE // between motion and returning to stillness
+} PIR_State;
+
+int calibrationTime = 30;
+long unsigned int motionPauseTs; // timestamp of start of motion
+long unsigned int pauseInterval = 3000; // idle time in ms to end current motion event
+PIR_State pirState = NONE;
 
 void calibrate(int warmupTime)
 {
@@ -47,7 +52,6 @@ void calibrate(int warmupTime)
     delay(1000);
   }
   Serial.println(" done");
-  Serial.println("SENSOR ACTIVE");
 }
 
 void setup()
@@ -59,46 +63,50 @@ void setup()
   pinMode(ledPin, OUTPUT);
   digitalWrite(ledPin, LOW);
 
+  pirState = INIT;
   calibrate(calibrationTime);
+  pirState = STILL;
   
   delay(50);
 }
 
 void loop()
 {
-     if(digitalRead(pirPin) == HIGH){
-       digitalWrite(ledPin, HIGH);   //the led visualizes the sensors output pin state
-       if(lockLow){  
-         //makes sure we wait for a transition to LOW before any further output is made:
-         lockLow = false;            
-         Serial.println("---");
-         Serial.print("motion detected at ");
-         Serial.print(millis()/1000);
-         Serial.println(" sec"); 
-         delay(50);
-         }         
-         takeLowTime = true;
-       }
+  long unsigned int currTs = millis();
+  int pirValue = digitalRead(pirPin);
+  digitalWrite(ledPin, pirValue); // LED reflects the sensor's output
 
-     if(digitalRead(pirPin) == LOW){       
-       digitalWrite(ledPin, LOW);  //the led visualizes the sensors output pin state
-
-       if(takeLowTime){
-        lowIn = millis();          //save the time of the transition from high to LOW
-        takeLowTime = false;       //make sure this is only done at the start of a LOW phase
+  switch (pirState) {
+    case STILL:
+      if (pirValue == HIGH) {
+        pirState = MOTION;
+        Serial.print("Motion detected at time ");
+        Serial.println(currTs/1000);
+      }
+      break;
+    case MOTION:
+      if (pirValue == LOW) {
+        pirState = PAUSE;
+        motionPauseTs = currTs;
+      }
+      break;
+    case PAUSE:
+      if (pirValue == LOW) {
+        if (currTs - motionPauseTs > pauseInterval) {
+          Serial.print("Motion ended at time ");
+          Serial.println((currTs-pauseInterval)/1000);
+          Serial.println("");
+          pirState = STILL;
+          delay(50);
         }
-       //if the sensor is low for more than the given pause, 
-       //we assume that no more motion is going to happen
-       if(!lockLow && millis() - lowIn > pause){  
-           //makes sure this block of code is only executed again after 
-           //a new motion sequence has been detected
-           lockLow = true;                        
-           Serial.print("motion ended at ");      //output
-           Serial.print((millis() - pause)/1000);
-           Serial.println(" sec");
-           delay(50);
-           }
-       }
+      }
+      else {
+        pirState = MOTION;
+      }
+      break;
+    default:
+      pirState = STILL; // reset if something's gone wrong
+      break;
   }
-
+}
 
