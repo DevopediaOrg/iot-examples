@@ -226,6 +226,7 @@ across the LDR and derive the resistance.
 <table><tr>
 <td>
 <br><img src="Arduino/LM35-7Segx3/LM35-7Segx3-LaunchPadF5529_bb.png" width=320px>
+<br><img src="Arduino/LM35-7Segx3/LM35-7Segx3_bb.png" width=320px>
 
 </td>
 <td>
