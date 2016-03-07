@@ -31,8 +31,6 @@ int hallSwitch = P2_4; // pins of P1 and P2 are interrupt capable
 int hallSwitch = 2; // pins 2 and 3 are interrupt capable on Uno
 #endif
 
-boolean prevDoorOpen = false;
-
 // We use volatile because variables are changed within ISR.
 // Compiler will not optimize volatile variables.
 volatile boolean doorOpen = false;

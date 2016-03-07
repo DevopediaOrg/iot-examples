@@ -50,7 +50,7 @@ void setup()
 
   // Change this if your BT module is configured to a different rate
   // Or configured the BT module using AT commands
-  Bluetooth.begin(38400);
+  Bluetooth.begin(9600);
 
   pinMode(LED, OUTPUT);
 

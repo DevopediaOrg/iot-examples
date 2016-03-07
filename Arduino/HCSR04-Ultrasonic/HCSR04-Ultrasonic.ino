@@ -25,8 +25,8 @@
 #define TriggerPin P2_0
 #define EchoPin P2_2
 #else
-#define TriggerPin 2
-#define EchoPin 3
+#define TriggerPin 3
+#define EchoPin 2
 #endif
 
 #define VelocitySound 340 // meters/sec
@@ -41,7 +41,6 @@ void setup()
   pinMode(EchoPin, INPUT_PULLDOWN);
   #else
   pinMode(EchoPin, INPUT);
-  digitalWrite(EchoPin, HIGH);
   #endif
 }
 
@@ -60,7 +59,7 @@ void loop()
       Serial.println("Obstacle is too close.");
     }
     else if (distance > 400) { // maximum distance the sensor can measure
-      Serial.println("Obstacle is probably out of range.");
+      Serial.println("No obstacle or obstacle is probably out of range.");
     }
     else {
       Serial.print("Obstacle is ");

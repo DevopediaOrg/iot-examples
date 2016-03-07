@@ -39,10 +39,10 @@ void loop() {
   // Use sin() to obtain smooth transitions: to keep the channels
   // out of phase, add an arbitrary phase offset.
   // For abrupt transitions, try random(255)
-  for (unsigned char i=0; i<256; i+=5) {
+  for (unsigned char i=0; i<256; i+=1) {
     analogWrite(R_LED, map(1000*sin(i*2*PI/255),-1000,1000,255,0));
     analogWrite(G_LED, map(1000*sin(2+i*2*PI/255),-1000,1000,255,0));
-    analogWrite(B_LED, map(1000*sin(4+i*2*PI/255),-1000,1000,255,0));
+    analogWrite(B_LED, map(1000*sin(3+i*2*PI/255),-1000,1000,255,0));
     delay(10);
   }
 }

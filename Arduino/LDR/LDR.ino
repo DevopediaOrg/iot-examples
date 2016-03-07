@@ -30,7 +30,7 @@
 #define ADC_MAX 1023
 #endif
 
-#define R1 15 // in kilo-ohms
+#define R1 10 // in kilo-ohms
 #define Vcc 3300 // in mV
 
 void setup()
@@ -41,7 +41,7 @@ void setup()
 void loop()
 {
   int value = analogRead(AIN);
-  unsigned int voltage = map(value,0,ADC_MAX,0,3300);
+  unsigned int voltage = map(value, 0, ADC_MAX, 0, 3300);
   unsigned int resistance = voltage*R1/(Vcc-voltage); // comes from voltage divider concept
   
   Serial.print("Value: ");

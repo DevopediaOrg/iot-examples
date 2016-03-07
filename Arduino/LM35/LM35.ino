@@ -50,7 +50,7 @@ void loop()
 
   // Avoid float to reduce code size
   /*
-  int temperature = map(analogRead(AIN),0,ADC_MAX,0,VREF); // 10mV => 1 degree C
+  int temperature = map(analogRead(AIN), 0, ADC_MAX, 0, VREF); // 10mV => 1 degree C
   Serial.print("Temperature is ");
   Serial.print(temperature / 10);
   Serial.print(".");

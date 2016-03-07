@@ -30,7 +30,7 @@ const int leds[] = {P2_5, P2_4, P1_5, P1_4, P1_3, P1_2};
 const int thresholds[] = {4000, 3700, 3000, 2400, 1200, 500};
 #else
 const int leds[] = {2, 3, 4, 5, 6, 7};
-const int thresholds[] = {1000, 925, 750, 600, 300, 125};
+const int thresholds[] = {620, 560, 480, 400, 300, 200};
 #endif
 
 void setup()

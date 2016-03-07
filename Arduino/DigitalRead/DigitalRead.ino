@@ -39,9 +39,11 @@ void setup()
   pinMode(pushButton, INPUT_PULLUP);
   #else
   pinMode(pushButton, INPUT);
-  #endif
 
-  pinMode(led, OUTPUT);
+  // Comment the following line to enable internal 20k input pullup
+  // :or use INPUT_PULLUP when calling pinMode() 
+  digitalWrite(pushButton, HIGH);
+  #endif
 }
 
 void loop()

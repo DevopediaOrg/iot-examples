@@ -85,7 +85,7 @@ void writeRegister(char registerAddress, char value){
   digitalWrite(CS, HIGH);
 
   #ifndef LaunchPadF5529
-  //delay(100); // may be required on Arduino Uno
+  //delay(10); // may be required on Arduino Uno
   #endif
 }
 
@@ -108,6 +108,6 @@ void readRegister(char registerAddress, int numBytes, char * values){
   digitalWrite(CS, HIGH);
 
   #ifndef LaunchPadF5529
-  //delay(100); // may be required on Arduino Uno
+  //delay(10); // may be required on Arduino Uno
   #endif
 }

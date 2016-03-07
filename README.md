@@ -55,8 +55,10 @@ the other is connected externally.
 ## BuzzerPot
 <table><tr>
 <td>
+<br><img src="Arduino/BuzzerPot/BuzzerPot-PWM-LaunchPadF5529_bb.png" width=320px>
 <br><img src="Arduino/BuzzerPot/BuzzerPot-PWM_bb.png" width=320px>
 <br><img src="Arduino/BuzzerPot/BuzzerPot_bb.png" width=320px>
+<br><img src="Arduino/BuzzerPot/BuzzerPot-LaunchPadF5529_bb.png" width=320px>
 
 </td>
 <td>
@@ -91,6 +93,7 @@ serial monitor but also used to light up an LED.
 <table><tr>
 <td>
 <br><img src="Arduino/FC04-SoundSensor/FC04-SoundSensor_bb.png" width=320px>
+<br><img src="Arduino/FC04-SoundSensor/FC04-SoundSensor-LaunchPadF5529_bb.png" width=320px>
 
 </td>
 <td>
@@ -139,6 +142,7 @@ Bluetooth SPP Tools Pro.
 <table><tr>
 <td>
 <br><img src="Arduino/HallEffect3144/HallEffect3144_bb.png" width=320px>
+<br><img src="Arduino/HallEffect3144/HallEffect3144-LaunchPadF5529_bb.png" width=320px>
 
 </td>
 <td>
@@ -205,6 +209,7 @@ grounded, only write operation is possible.
 ## LDR
 <table><tr>
 <td>
+<br><img src="Arduino/LDR/LDR-LaunchPadF5529_bb.png" width=320px>
 <br><img src="Arduino/LDR/LDR_bb.png" width=320px>
 
 </td>
@@ -220,7 +225,7 @@ across the LDR and derive the resistance.
 ## LM35-7Segx3
 <table><tr>
 <td>
-<br><img src="Arduino/LM35-7Segx3/LM35-7Segx3_bb.png" width=320px>
+<br><img src="Arduino/LM35-7Segx3/LM35-7Segx3-LaunchPadF5529_bb.png" width=320px>
 
 </td>
 <td>
@@ -235,6 +240,7 @@ Use 74HC595 shift register to control 3 7-segment displays.
 ## LM35
 <table><tr>
 <td>
+<br><img src="Arduino/LM35/LM35-LaunchPadF5529_bb.png" width=320px>
 <br><img src="Arduino/LM35/LM35_bb.png" width=320px>
 
 </td>
@@ -296,6 +302,7 @@ of PWM out. Two implementations are illustrated.
 ## MQ2-GasSensor
 <table><tr>
 <td>
+<br><img src="Arduino/MQ2-GasSensor/MQ2-GasSensor-LaunchPadF5529_bb.png" width=320px>
 <br><img src="Arduino/MQ2-GasSensor/MQ2-GasSensor_bb.png" width=320px>
 
 </td>
@@ -348,6 +355,7 @@ via UART. RTClib is used in this code.
 <table><tr>
 <td>
 <br><img src="Arduino/ReedSwitch/ReedSwitch_bb.png" width=320px>
+<br><img src="Arduino/ReedSwitch/ReedSwitch-LaunchPadF5529_bb.png" width=320px>
 
 </td>
 <td>
@@ -363,6 +371,7 @@ This example shows how to write interrupt code.
 <table><tr>
 <td>
 <br><img src="Arduino/RgbLed/RgbLed_bb.png" width=320px>
+<br><img src="Arduino/RgbLed/RgbLed-LaunchPadF5529_bb.png" width=320px>
 
 </td>
 <td>

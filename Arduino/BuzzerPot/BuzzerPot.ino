@@ -31,7 +31,7 @@
 #define ADC_MAX 4095
 #define BUZZER_OUT P2_4
 #else
-#define VREF 1100 // mV
+#define VREF 5000 // mV
 #define AIN A5 // aka 17
 #define ADC_MAX 1023
 #define BUZZER_OUT 3
@@ -46,41 +46,33 @@
 void setup()
 {
   Serial.begin(9600);
-
-  #ifndef LaunchPadF5529
-  // Since Uno has only a 10-bit ADC, improve accuracy using internal 1.1V
-  analogReference(INTERNAL);
-  #endif
 }
 
 void loop()
 {
   int sensorValue = analogRead(AIN);
-  int voltage = map(sensorValue,0,ADC_MAX,0,VREF); // for debugging
+  int voltage = map(sensorValue, 0, ADC_MAX, 0, VREF); // for debugging
 
-  #ifdef WITH_PWM
-    #ifdef VARY_TONE
-    int toneOut = map(sensorValue,0,ADC_MAX,100,10000);
-    tone(BUZZER_OUT, toneOut);
-    #else
-    int writeOut = map(sensorValue,0,ADC_MAX,0,255);
-    analogWrite(BUZZER_OUT, writeOut);
-    #endif
+  #if defined(WITH_PWM)
+  int writeOut = map(sensorValue, 0, ADC_MAX, 0, 255);
+  analogWrite(BUZZER_OUT, writeOut);
+  #elif defined(VARY_TONE)
+  int toneOut = map(sensorValue, 0, ADC_MAX, 100, 15000);
+  tone(BUZZER_OUT, toneOut);
   #endif
 
   Serial.print(sensorValue);
   Serial.print("\t");
   Serial.print(voltage);
-  #ifdef WITH_PWM
-    #ifdef VARY_TONE
-    Serial.print("\t");
-    Serial.println(toneOut);
-    #else
-    Serial.println(writeOut);
-    #endif
+  #if defined(WITH_PWM)
+  Serial.print("\t");
+  Serial.println(writeOut);
+  #elif defined(VARY_TONE)
+  Serial.print("\t");
+  Serial.println(toneOut);
   #else
-    Serial.println("");
+  Serial.println("");
   #endif
 
-  delay(50); // delay in between reads for stability
+  delay(200); // delay in between reads for stability
 }
