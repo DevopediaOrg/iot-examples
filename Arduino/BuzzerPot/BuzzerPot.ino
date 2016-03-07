@@ -32,7 +32,7 @@
 #define BUZZER_OUT P2_4
 #else
 #define VREF 5000 // mV
-#define AIN A5 // aka 17
+#define AIN A5 // aka 19
 #define ADC_MAX 1023
 #define BUZZER_OUT 3
 #endif
