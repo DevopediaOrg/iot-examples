@@ -4,15 +4,16 @@ A collection of examples for getting started in the Internet of Things (IoT). Th
 
 * `admin`: Utilities for maintaining this repo.
 * `Arduino`: Projects on Arduino and Energia. Most examples are about Arduino Uno and TI LaunchPadF5529.
+* `NodeMCU`: Projects on NodeMCU including those that can be programmed via Arduino IDE.
+* `RaspberryPi`: Projects on mostly Raspberry Pi 2, although examples may work with other variants.
 
-Examples using other platforms such as Intel Edison, Broadcom WICED, ARM mbed or Raspberry Pi may be added in future.
+Examples using other platforms such as Intel Edison, Broadcom WICED or ARM mbedmay be added in future.
 # Basic Examples
 
 ## ADXL345I2C
 <table><tr>
 <td>
 <br><img src="Arduino/ADXL345I2C/ADXL345I2C_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno</pre></p>
@@ -26,7 +27,6 @@ Examples using other platforms such as Intel Edison, Broadcom WICED, ARM mbed or
 <table><tr>
 <td>
 <br><img src="Arduino/ADXL345SPI/ADXL345SPI_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -39,9 +39,8 @@ Examples using other platforms such as Intel Edison, Broadcom WICED, ARM mbed or
 ## Blink
 <table><tr>
 <td>
-<br><img src="Arduino/Blink/Blink_bb.png" width=320px>
 <br><img src="Arduino/Blink/Blink-LaunchPadF5529_bb.png" width=320px>
-
+<br><img src="Arduino/Blink/Blink_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -55,11 +54,10 @@ the other is connected externally.
 ## BuzzerPot
 <table><tr>
 <td>
+<br><img src="Arduino/BuzzerPot/BuzzerPot-LaunchPadF5529_bb.png" width=320px>
 <br><img src="Arduino/BuzzerPot/BuzzerPot-PWM-LaunchPadF5529_bb.png" width=320px>
 <br><img src="Arduino/BuzzerPot/BuzzerPot-PWM_bb.png" width=320px>
 <br><img src="Arduino/BuzzerPot/BuzzerPot_bb.png" width=320px>
-<br><img src="Arduino/BuzzerPot/BuzzerPot-LaunchPadF5529_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -77,7 +75,6 @@ uses PWM to drive the buzzer.
 <table><tr>
 <td>
 <br><img src="Arduino/DigitalRead/DigitalRead_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -92,9 +89,8 @@ serial monitor but also used to light up an LED.
 ## FC04-SoundSensor
 <table><tr>
 <td>
-<br><img src="Arduino/FC04-SoundSensor/FC04-SoundSensor_bb.png" width=320px>
 <br><img src="Arduino/FC04-SoundSensor/FC04-SoundSensor-LaunchPadF5529_bb.png" width=320px>
-
+<br><img src="Arduino/FC04-SoundSensor/FC04-SoundSensor_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -112,7 +108,6 @@ trimmer on the module to suit your application.
 <table><tr>
 <td>
 <br><img src="Arduino/HC05-Bluetooth/HC05-Bluetooth_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -128,7 +123,6 @@ Bluetooth SPP Tools Pro.
 <table><tr>
 <td>
 <br><img src="Arduino/HCSR04-Ultrasonic/HCSR04-Ultrasonic_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -141,9 +135,8 @@ Bluetooth SPP Tools Pro.
 ## HallEffect3144
 <table><tr>
 <td>
-<br><img src="Arduino/HallEffect3144/HallEffect3144_bb.png" width=320px>
 <br><img src="Arduino/HallEffect3144/HallEffect3144-LaunchPadF5529_bb.png" width=320px>
-
+<br><img src="Arduino/HallEffect3144/HallEffect3144_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -160,7 +153,6 @@ interrupt code.
 <table><tr>
 <td>
 <br><img src="Arduino/IR-Promixity-Detection/IR-Promixity-Detection_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -177,7 +169,6 @@ as a digital or an analog output.
 <table><tr>
 <td>
 <br><img src="Arduino/IR-RemoteControl/IR-RemoteControl_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -193,7 +184,6 @@ commands to the household gadget/appliance.
 <table><tr>
 <td>
 <br><img src="Arduino/LCD-2x16-Joystick/LCD-2x16-Joystick_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -211,7 +201,6 @@ grounded, only write operation is possible.
 <td>
 <br><img src="Arduino/LDR/LDR-LaunchPadF5529_bb.png" width=320px>
 <br><img src="Arduino/LDR/LDR_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -227,7 +216,6 @@ across the LDR and derive the resistance.
 <td>
 <br><img src="Arduino/LM35-7Segx3/LM35-7Segx3-LaunchPadF5529_bb.png" width=320px>
 <br><img src="Arduino/LM35-7Segx3/LM35-7Segx3_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -243,7 +231,6 @@ Use 74HC595 shift register to control 3 7-segment displays.
 <td>
 <br><img src="Arduino/LM35/LM35-LaunchPadF5529_bb.png" width=320px>
 <br><img src="Arduino/LM35/LM35_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -257,7 +244,6 @@ Use 74HC595 shift register to control 3 7-segment displays.
 <table><tr>
 <td>
 <br><img src="Arduino/LedMatrix-Max7219/LedMatrix-Max7219_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -274,7 +260,6 @@ is used for interfacing. Two variants are presented below:
 <table><tr>
 <td>
 <br><img src="Arduino/LedMatrix/LedMatrix_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -288,7 +273,6 @@ is used for interfacing. Two variants are presented below:
 <table><tr>
 <td>
 <br><img src="Arduino/LedStrip-ULN2003/LedStrip-ULN2003_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -305,7 +289,6 @@ of PWM out. Two implementations are illustrated.
 <td>
 <br><img src="Arduino/MQ2-GasSensor/MQ2-GasSensor-LaunchPadF5529_bb.png" width=320px>
 <br><img src="Arduino/MQ2-GasSensor/MQ2-GasSensor_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -323,7 +306,6 @@ humidity and temperature.
 <table><tr>
 <td>
 <br><img src="Arduino/PIR-MotionDetector/PIR-MotionDetector_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -339,7 +321,6 @@ time interval before we record a new motion.
 <table><tr>
 <td>
 <br><img src="Arduino/RTC-IN1307/RTC-IN1307_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -355,9 +336,8 @@ via UART. RTClib is used in this code.
 ## ReedSwitch
 <table><tr>
 <td>
-<br><img src="Arduino/ReedSwitch/ReedSwitch_bb.png" width=320px>
 <br><img src="Arduino/ReedSwitch/ReedSwitch-LaunchPadF5529_bb.png" width=320px>
-
+<br><img src="Arduino/ReedSwitch/ReedSwitch_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -371,9 +351,8 @@ This example shows how to write interrupt code.
 ## RgbLed
 <table><tr>
 <td>
-<br><img src="Arduino/RgbLed/RgbLed_bb.png" width=320px>
 <br><img src="Arduino/RgbLed/RgbLed-LaunchPadF5529_bb.png" width=320px>
-
+<br><img src="Arduino/RgbLed/RgbLed_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -388,7 +367,6 @@ colours. Hence, pins must be capable of PWM out.
 <table><tr>
 <td>
 <br><img src="Arduino/SerialCmds/SerialCmds_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -409,7 +387,6 @@ are typed.
 <table><tr>
 <td>
 <br><img src="Arduino/ServoPushbutton/ServoPushbutton_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -422,9 +399,8 @@ are typed.
 ## UnipolarStepper
 <table><tr>
 <td>
-<br><img src="Arduino/UnipolarStepper/UnipolarStepper_bb.png" width=320px>
 <br><img src="Arduino/UnipolarStepper/UnipolarStepper-ULN2003_bb.png" width=320px>
-
+<br><img src="Arduino/UnipolarStepper/UnipolarStepper_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
@@ -446,13 +422,29 @@ this code for illustration:
 <table><tr>
 <td>
 <br><img src="NodeMCU/Blynk-Blink/Blynk-Blink_bb.png" width=320px>
-
 </td>
 <td>
 <b>Boards</b><p><pre>NodeMCU</pre></p>
 <b>Description</b><p><pre>Control an LED manually from the Blynk app. This code can
 be compiled and uploaded from Arduino IDE. Update the code
 with your token, Wi-Fi SSID and password.
+</pre></p>
+</td>
+</tr></table>
+
+
+## Blink-Fade
+<table><tr>
+<td>
+<br><img src="RaspberryPi/Blink-Fade/Blink-Fade_bb.png" width=320px>
+</td>
+<td>
+<b>Boards</b><p><pre>Raspberry Pi 2</pre></p>
+<b>Description</b><p><pre>Use RPi.GPIO module to blink or fade an LED. Execution
+switches between the two whenever a push button is pressed
+and released. Fading uses software PWM since RPi.GPIO
+module does not support hardware PWM. Note that RPi.GPIO 
+is available by default on Raspbian Jessie.
 </pre></p>
 </td>
 </tr></table>
