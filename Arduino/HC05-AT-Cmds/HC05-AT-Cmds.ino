@@ -12,10 +12,11 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
   ---------------------------------------------------------------------
-  Purpose : Send commands from an Android device via Bluetooth to turn
-            on/off or blink and LED. A suggested Android app is the
-            Bluetooth SPP Tools Pro.
-  Date    : 7 Jan 2016
+  Purpose : Put the Bluetooth module in AT command mode. Run a bunch of
+            commands to configure the module. Module must be forced to
+            enter AT command mode by long pressing the reset button
+            before powering it up.
+  Date    : 11 Mar 2016
   Boards  : ArduinoUno, LaunchPadF5529
   =====================================================================
 */
@@ -24,9 +25,9 @@
 // #define LaunchPadF5529
 
 #ifdef LaunchPadF5529
-#define LED RED_LED // on-board, aka P1_0
+#define EN_PIN P2_0
 #else
-#define LED 13 // on-board
+#define EN_PIN 9
 #define BT_TX 2
 #define BT_RX 3
 #endif
@@ -41,59 +42,27 @@
 #include <SoftwareSerial.h>
 SoftwareSerial Bluetooth(BT_TX, BT_RX);
 
-boolean ToBlink = false;
-
 void setup()
 {
   Serial.begin(9600);
-  Serial.print("Starting... ");
 
-  // Change this if your BT module is configured to a different rate
-  // Or configure the BT module using AT commands
-  Bluetooth.begin(9600);
+  // This may be redundant since we are long pressing
+  // reset button to put module into AT command mode
+  pinMode(EN_PIN, OUTPUT);
+  digitalWrite(EN_PIN, HIGH);
 
-  pinMode(LED, OUTPUT);
+  // Default baud rate in AT command mode
+  Bluetooth.begin(38400);
 
-  Serial.println("done");
+  Serial.print("Waiting for AT commands ... ");
 }
 
 void loop()
 {
-  // Process commands received via BT
-  if (Bluetooth.available()) {
-    char dataFromBt = Bluetooth.read();
-    Serial.print("Received from BT: 0x");
-    Serial.println(dataFromBt, HEX);
+  if (Bluetooth.available())
+    Serial.write(Bluetooth.read());
 
-    if (dataFromBt == '1') {
-      Serial.println("Turning on...");
-      digitalWrite(LED, HIGH);
-      ToBlink = false;
-    }
-    else if (dataFromBt == '0') {
-      Serial.println("Turning off...");
-      digitalWrite(LED, LOW);
-      ToBlink = false;
-    }
-    else if (dataFromBt == 'b') {
-      Serial.println("Blinking...");
-      ToBlink = true;
-    }
-  }
-
-  // Send Serial commands to BT
-  if (Serial.available()) {
-    char buffer[64];
-    int numBytes = Serial.readBytesUntil('\n', buffer, 63);
-    buffer[numBytes] = 0;
-    Bluetooth.println(buffer);
-  }
-
-  if (ToBlink) {
-    digitalWrite(LED, HIGH);
-    delay(250);
-    digitalWrite(LED, LOW);
-    delay(250);
-  }
+  if (Serial.available())
+      Bluetooth.write(Serial.read());
 }
 
