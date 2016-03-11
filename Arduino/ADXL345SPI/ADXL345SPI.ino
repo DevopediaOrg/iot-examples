@@ -27,87 +27,112 @@ int CS = P2_7;
 int CS = 10;
 #endif
 
-
 #include <SPI.h>
 
-char POWER_CTL = 0x2D;
-char DATA_FORMAT = 0x31;
-char DATAX0 = 0x32;
-char DATAX1 = 0x33;
-char DATAY0 = 0x34;
-char DATAY1 = 0x35;
-char DATAZ0 = 0x36;
-char DATAZ1 = 0x37;
+// ADXL345 register addresses
+#define BW_RATE 0x2C
+#define POWER_CTL 0x2D
+#define DATA_FORMAT 0x31
+#define DATAX 0x32
+#define DATAY 0x34
+#define DATAZ 0x36
 
-char values[10];
-int x,y,z;
+#define FULL_RES 0x08
+#define READ_OP 0x80
+#define MULTIBYTE_READ 0x40
+#define MEASURE_MODE 0x08
 
-void setup(){ 
-  SPI.begin();
-  SPI.setDataMode(SPI_MODE3);
-  SPI.setBitOrder(MSBFIRST);
+enum {
+  Range_2g = 0,
+  Range_4g,
+  Range_8g,
+  Range_16g
+} Range;
 
-  Serial.begin(9600);
+void setup()
+{ 
+  Serial.begin(115200);
   
-  pinMode(CS, OUTPUT);
-  digitalWrite(CS, HIGH);
-  
-  writeRegister(DATA_FORMAT, 0x00); // -+2g
-  writeRegister(POWER_CTL, 0x08);  //Measurement mode  
+  initADXL345(Range_16g);
 }
 
-void loop(){
-  // Reading 6 bytes of data starting at register DATAX0 will retrieve 
-  // the x,y and z acceleration values from the ADXL345.
-  readRegister(DATAX0, 6, values);
+void loop()
+{
+  char values[6];
+  int x,y,z;
 
-  // 10-bit acceleration values stored across 2 bytes.
+  // Reading 6 bytes of data starting at register DATAX0 will retrieve 
+  // the x, y and z acceleration values from the ADXL345.
+  readRegister(DATAX, 6, values);
+
+  // 13-bit acceleration values stored across 2 bytes.
   x = ((int)values[1]<<8)|(int)values[0];
   y = ((int)values[3]<<8)|(int)values[2];
   z = ((int)values[5]<<8)|(int)values[4];
   
+  Serial.print("X: ");
   Serial.print(x, DEC);
-  Serial.print(',');
+  Serial.print(" Y: ");
   Serial.print(y, DEC);
-  Serial.print(',');
-  Serial.println(z, DEC);      
-  delay(200); 
+  Serial.print(" Z: [MSB,LSB] [");
+  Serial.print(values[5] & 0xFF, HEX);
+  Serial.print("-");
+  Serial.print(values[4] & 0xFF, HEX);
+  Serial.print("] ");
+  Serial.println(z, DEC);
+
+  delay(500); 
 }
 
-//This function will write a value to a register on the ADXL345.
-//Parameters:
-//  char registerAddress - The register to write a value to
-//  char value - The value to be written to the specified register.
-void writeRegister(char registerAddress, char value){
+void initADXL345(byte range)
+{
+  #ifdef LaunchPadF5529
+  // TODO Rewrite if SPISettings are supported
+  SPI.begin();
+  SPI.setDataMode(SPI_MODE3);
+  SPI.setBitOrder(MSBFIRST);
+  #else
+  SPI.begin();
+  #endif
+  
+  // We use SPI in 4-wire mode
+  pinMode(CS, OUTPUT);
+  digitalWrite(CS, HIGH);
+
+  writeRegister(BW_RATE, 0x0D); // 800 Hz o/p, 400 Hz BW
+  writeRegister(DATA_FORMAT, FULL_RES | range);
+  writeRegister(POWER_CTL, MEASURE_MODE);  
+}
+
+void writeRegister(char registerAddress, char value)
+{
+  SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE3));
   digitalWrite(CS, LOW);
   SPI.transfer(registerAddress);
   SPI.transfer(value);
   digitalWrite(CS, HIGH);
+  SPI.endTransaction();
 
   #ifndef LaunchPadF5529
-  //delay(10); // may be required on Arduino Uno
+  delay(10); // may be required on Arduino Uno
   #endif
 }
 
-//This function will read a certain number of registers starting from a specified address and store their values in a buffer.
-//Parameters:
-//  char registerAddress - The register addresse to start the read sequence from.
-//  int numBytes - The number of registers that should be read.
-//  char * values - A pointer to a buffer where the results of the operation should be stored.
-void readRegister(char registerAddress, int numBytes, char * values){
-  //Since we're performing a read operation, the most significant bit of the register address should be set.
-  char address = 0x80 | registerAddress;
-  //If we're doing a multi-byte read, bit 6 needs to be set as well.
-  if(numBytes > 1) address = address | 0x40;
+void readRegister(char registerAddress, int numBytes, char * values)
+{
+  char address = READ_OP | registerAddress;
+  if(numBytes > 1) address = MULTIBYTE_READ | address;
   
+  SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE3));
   digitalWrite(CS, LOW);
   SPI.transfer(address);
   for(int i=0; i<numBytes; i++){
     values[i] = SPI.transfer(0x00);
   }
   digitalWrite(CS, HIGH);
-
+  SPI.endTransaction();
+  
   #ifndef LaunchPadF5529
-  //delay(10); // may be required on Arduino Uno
+  delay(10); // may be required on Arduino Uno
   #endif
 }

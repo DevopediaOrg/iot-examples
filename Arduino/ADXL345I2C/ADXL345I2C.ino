@@ -20,47 +20,47 @@
 
 #include <Wire.h>
 
-/* Normal or alternate I2C address of the module */
-#define I2C_Add 0x1D //0x53
+// ALT ADDRESS (SDO) HIGH: 0x1D
+// ALT ADDRESS (SDO) LOW: 0x53
+#define I2C_Add 0x1D
 
-/* ADXL345 register addresses */
+// ADXL345 register addresses
 #define POWER_CTL 0x2D
 #define DATA_FORMAT 0x31
-#define X_Axis 0x32
-#define Y_Axis 0x34
-#define Z_Axis 0x36
+#define DATAX 0x32
+#define DATAY 0x34
+#define DATAZ 0x36
 
-/* Accelerometer range modes */
-#define RANGE_2g 0
-#define RANGE_4g 1
-#define RANGE_8g 2
-#define RANGE_16g 3
+#define FULL_RES 0x08
+
+enum {
+  Range_2g = 0,
+  Range_4g,
+  Range_8g,
+  Range_16g
+} Range;
 
 void setup()
 {
-  /* Initialise the I2C bus */
   Wire.begin(); 
  
-  Serial.begin(9600);
+  Serial.begin(115200);
  
-  initADXL345(RANGE_2g);
+  initADXL345(Range_16g);
 }
 
 void loop()
 {
   Serial.print("X: ");
-  Serial.print(readAxis(X_Axis));
- 
+  Serial.print(readAxis(DATAX));
   Serial.print(" Y: ");
-  Serial.print(readAxis(Y_Axis));
- 
+  Serial.print(readAxis(DATAY));
   Serial.print(" Z: ");
-  Serial.println(readAxis(Z_Axis));
-  
+  Serial.println(readAxis(DATAZ));
+
   delay(100);
 }
 
-/* Read one of the 3 axis via the I2C interface */
 int readAxis(byte axis)
 {
   int data;
@@ -85,17 +85,16 @@ int readAxis(byte axis)
   return data;
 }
 
-/* Initialise the ADXL345 */
 void initADXL345(byte range)
 {
   Wire.beginTransmission(I2C_Add);
  
-  /* Set the sensitivity of the module */
+  // Configure the sensor
   Wire.write(DATA_FORMAT);
-  Wire.write(range);
+  Wire.write(FULL_RES | range);
   Wire.endTransmission();
  
-  /* Put the module into measurement mode to start taking measurements */
+  // Start measurements
   Wire.beginTransmission(I2C_Add);
   Wire.write(POWER_CTL);
   Wire.write(0x08);
