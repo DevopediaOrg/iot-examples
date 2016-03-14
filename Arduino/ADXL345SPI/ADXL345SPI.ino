@@ -74,11 +74,7 @@ void loop()
   Serial.print(x, DEC);
   Serial.print(" Y: ");
   Serial.print(y, DEC);
-  Serial.print(" Z: [MSB,LSB] [");
-  Serial.print(values[5] & 0xFF, HEX);
-  Serial.print("-");
-  Serial.print(values[4] & 0xFF, HEX);
-  Serial.print("] ");
+  Serial.print(" Z: ");
   Serial.println(z, DEC);
 
   delay(500); 
@@ -87,7 +83,6 @@ void loop()
 void initADXL345(byte range)
 {
   #ifdef LaunchPadF5529
-  // TODO Rewrite if SPISettings are supported
   SPI.begin();
   SPI.setDataMode(SPI_MODE3);
   SPI.setBitOrder(MSBFIRST);
@@ -106,14 +101,17 @@ void initADXL345(byte range)
 
 void writeRegister(char registerAddress, char value)
 {
+  #ifndef LaunchPadF5529
   SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE3));
+  #endif
+
   digitalWrite(CS, LOW);
   SPI.transfer(registerAddress);
   SPI.transfer(value);
   digitalWrite(CS, HIGH);
-  SPI.endTransaction();
 
   #ifndef LaunchPadF5529
+  SPI.endTransaction();
   delay(10); // may be required on Arduino Uno
   #endif
 }
@@ -123,16 +121,19 @@ void readRegister(char registerAddress, int numBytes, char * values)
   char address = READ_OP | registerAddress;
   if(numBytes > 1) address = MULTIBYTE_READ | address;
   
+  #ifndef LaunchPadF5529
   SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE3));
+  #endif
+
   digitalWrite(CS, LOW);
   SPI.transfer(address);
   for(int i=0; i<numBytes; i++){
     values[i] = SPI.transfer(0x00);
   }
   digitalWrite(CS, HIGH);
-  SPI.endTransaction();
   
   #ifndef LaunchPadF5529
+  SPI.endTransaction();
   delay(10); // may be required on Arduino Uno
   #endif
 }
