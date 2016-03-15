@@ -31,7 +31,7 @@
 
 char auth[] = "xxx";
 
-int adcPin = 17;
+int adcPin = A0;
 float temperature;
 SimpleTimer timer;
 
@@ -58,9 +58,11 @@ void loop()
   temperature = adcValue * 330 / 1024; // 3.3 VREF, 10-bit ADC, 10mV = 1 degree Celsius
 
   // Just for debugging
-  Serial.print("ADC value: ");
-  Serial.print(adcValue);
-  Serial.print("; Current temperature (Celsius): ");
-  Serial.println(temperature);
+  if (millis() % 1000 == 0) {
+    Serial.print("ADC value: ");
+    Serial.print(adcValue);
+    Serial.print("; Current temperature (Celsius): ");
+    Serial.println(temperature);
+  }
 }
 
