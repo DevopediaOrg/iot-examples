@@ -167,10 +167,10 @@ interrupt code.
 </tr></table>
 
 
-## IR-Promixity-Detection
+## IR-Proximity-Detection
 <table><tr>
 <td>
-<br><img src="Arduino/IR-Promixity-Detection/IR-Promixity-Detection_bb.png" width=320px>
+<br><img src="Arduino/IR-Proximity-Detection/IR-Proximity-Detection_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>
