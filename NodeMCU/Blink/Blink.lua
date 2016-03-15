@@ -42,7 +42,7 @@ end
 -----------------------------------------------------------------------
 function configWiFi ()
     wifi.setmode(wifi.STATION)
-    wifi.sta.config("andronicus","rhjUk87uibio09")
+    wifi.sta.config("xxx","xxx")
 end
 
 
