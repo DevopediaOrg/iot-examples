@@ -13,7 +13,8 @@
 --along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -----------------------------------------------------------------------
 --Purpose : Blink an LED via a Lua script. Wi-Fi connection is enabled
---          but is not used in this example.
+--          but is not used in this example. You could ping NodeMCU by
+--          its IP address to test the Wi-Fi connection.
 --Date    : 25 Jan 2016
 --Boards  : NodeMCU
 --=====================================================================
