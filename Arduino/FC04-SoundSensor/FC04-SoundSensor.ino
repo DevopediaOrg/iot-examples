@@ -43,7 +43,7 @@ void setup()
 
 void loop()
 {
-  int sensorValue = analogRead(A2);
+  int sensorValue = analogRead(A5);
   
   // Enable only for debugging: this will add delay to the loop
   // Serial.println(sensorValue);
