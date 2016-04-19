@@ -87,7 +87,8 @@ def print_project(board, fields):
         of.write('<table><tr>\n');
         of.write('<td>\n');
         for img in sorted(fields['images']):
-            of.write('''<br><img src="{}" width=320px>\n'''.format(img.replace('\\', '/')))
+            imgname = os.path.basename(img)
+            of.write('''<br><img src="{}" width=320px>\n'''.format(imgname.replace('\\', '/')))
         of.write('</td>\n');
         of.write('<td>\n');
         of.write('<b>Boards</b><p><pre>{}</pre></p>\n'.format(fields['boards']));

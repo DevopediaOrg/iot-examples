@@ -1,8 +1,8 @@
 # Blink
 <table><tr>
 <td>
-<br><img src="Arduino/Blink/Blink-LaunchPadF5529_bb.png" width=320px>
-<br><img src="Arduino/Blink/Blink_bb.png" width=320px>
+<br><img src="Blink-LaunchPadF5529_bb.png" width=320px>
+<br><img src="Blink_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>

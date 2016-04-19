@@ -1,8 +1,8 @@
 # MQ2-GasSensor
 <table><tr>
 <td>
-<br><img src="Arduino/MQ2-GasSensor/MQ2-GasSensor-LaunchPadF5529_bb.png" width=320px>
-<br><img src="Arduino/MQ2-GasSensor/MQ2-GasSensor_bb.png" width=320px>
+<br><img src="MQ2-GasSensor-LaunchPadF5529_bb.png" width=320px>
+<br><img src="MQ2-GasSensor_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>

@@ -1,7 +1,7 @@
 # ServoPushbutton
 <table><tr>
 <td>
-<br><img src="Arduino/ServoPushbutton/ServoPushbutton_bb.png" width=320px>
+<br><img src="ServoPushbutton_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>

@@ -1,7 +1,7 @@
 # Blink-Fade
 <table><tr>
 <td>
-<br><img src="RaspberryPi/Blink-Fade/Blink-Fade_bb.png" width=320px>
+<br><img src="Blink-Fade_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>Raspberry Pi 2</pre></p>

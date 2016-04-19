@@ -1,7 +1,7 @@
 # LedMatrix-Max7219
 <table><tr>
 <td>
-<br><img src="Arduino/LedMatrix-Max7219/LedMatrix-Max7219_bb.png" width=320px>
+<br><img src="LedMatrix-Max7219_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>

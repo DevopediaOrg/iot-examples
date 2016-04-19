@@ -1,7 +1,7 @@
 # HCSR04-Ultrasonic
 <table><tr>
 <td>
-<br><img src="Arduino/HCSR04-Ultrasonic/HCSR04-Ultrasonic_bb.png" width=320px>
+<br><img src="HCSR04-Ultrasonic_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>

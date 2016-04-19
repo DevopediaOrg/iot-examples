@@ -1,8 +1,8 @@
 # RgbLed
 <table><tr>
 <td>
-<br><img src="Arduino/RgbLed/RgbLed-LaunchPadF5529_bb.png" width=320px>
-<br><img src="Arduino/RgbLed/RgbLed_bb.png" width=320px>
+<br><img src="RgbLed-LaunchPadF5529_bb.png" width=320px>
+<br><img src="RgbLed_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>

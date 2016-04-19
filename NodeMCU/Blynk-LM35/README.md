@@ -1,7 +1,7 @@
 # Blynk-LM35
 <table><tr>
 <td>
-<br><img src="NodeMCU/Blynk-LM35/Blynk-LM35_bb.png" width=320px>
+<br><img src="Blynk-LM35_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>NodeMCU</pre></p>

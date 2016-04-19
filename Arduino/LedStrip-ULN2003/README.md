@@ -1,7 +1,7 @@
 # LedStrip-ULN2003
 <table><tr>
 <td>
-<br><img src="Arduino/LedStrip-ULN2003/LedStrip-ULN2003_bb.png" width=320px>
+<br><img src="LedStrip-ULN2003_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>

@@ -1,8 +1,8 @@
 # HC05-Bluetooth
 <table><tr>
 <td>
-<br><img src="Arduino/HC05-Bluetooth/HC05-Bluetooth-LaunchPadF5529_bb.png" width=320px>
-<br><img src="Arduino/HC05-Bluetooth/HC05-Bluetooth_bb.png" width=320px>
+<br><img src="HC05-Bluetooth-LaunchPadF5529_bb.png" width=320px>
+<br><img src="HC05-Bluetooth_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>

@@ -1,8 +1,8 @@
 # LDR
 <table><tr>
 <td>
-<br><img src="Arduino/LDR/LDR-LaunchPadF5529_bb.png" width=320px>
-<br><img src="Arduino/LDR/LDR_bb.png" width=320px>
+<br><img src="LDR-LaunchPadF5529_bb.png" width=320px>
+<br><img src="LDR_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>

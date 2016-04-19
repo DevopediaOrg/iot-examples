@@ -1,7 +1,7 @@
 # Blynk-Blink
 <table><tr>
 <td>
-<br><img src="NodeMCU/Blynk-Blink/Blynk-Blink_bb.png" width=320px>
+<br><img src="Blynk-Blink_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>NodeMCU</pre></p>

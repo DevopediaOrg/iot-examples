@@ -1,7 +1,7 @@
 # SerialCmds
 <table><tr>
 <td>
-<br><img src="Arduino/SerialCmds/SerialCmds_bb.png" width=320px>
+<br><img src="SerialCmds_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>

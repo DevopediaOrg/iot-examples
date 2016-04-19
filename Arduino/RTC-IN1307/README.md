@@ -1,7 +1,7 @@
 # RTC-IN1307
 <table><tr>
 <td>
-<br><img src="Arduino/RTC-IN1307/RTC-IN1307_bb.png" width=320px>
+<br><img src="RTC-IN1307_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>

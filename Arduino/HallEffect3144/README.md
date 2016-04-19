@@ -1,8 +1,8 @@
 # HallEffect3144
 <table><tr>
 <td>
-<br><img src="Arduino/HallEffect3144/HallEffect3144-LaunchPadF5529_bb.png" width=320px>
-<br><img src="Arduino/HallEffect3144/HallEffect3144_bb.png" width=320px>
+<br><img src="HallEffect3144-LaunchPadF5529_bb.png" width=320px>
+<br><img src="HallEffect3144_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>

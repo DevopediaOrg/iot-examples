@@ -1,10 +1,10 @@
 # BuzzerPot
 <table><tr>
 <td>
-<br><img src="Arduino/BuzzerPot/BuzzerPot-LaunchPadF5529_bb.png" width=320px>
-<br><img src="Arduino/BuzzerPot/BuzzerPot-PWM-LaunchPadF5529_bb.png" width=320px>
-<br><img src="Arduino/BuzzerPot/BuzzerPot-PWM_bb.png" width=320px>
-<br><img src="Arduino/BuzzerPot/BuzzerPot_bb.png" width=320px>
+<br><img src="BuzzerPot-LaunchPadF5529_bb.png" width=320px>
+<br><img src="BuzzerPot-PWM-LaunchPadF5529_bb.png" width=320px>
+<br><img src="BuzzerPot-PWM_bb.png" width=320px>
+<br><img src="BuzzerPot_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>

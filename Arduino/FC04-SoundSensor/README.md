@@ -1,8 +1,8 @@
 # FC04-SoundSensor
 <table><tr>
 <td>
-<br><img src="Arduino/FC04-SoundSensor/FC04-SoundSensor-LaunchPadF5529_bb.png" width=320px>
-<br><img src="Arduino/FC04-SoundSensor/FC04-SoundSensor_bb.png" width=320px>
+<br><img src="FC04-SoundSensor-LaunchPadF5529_bb.png" width=320px>
+<br><img src="FC04-SoundSensor_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>

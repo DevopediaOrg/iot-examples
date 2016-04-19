@@ -1,8 +1,8 @@
 # UnipolarStepper
 <table><tr>
 <td>
-<br><img src="Arduino/UnipolarStepper/UnipolarStepper-ULN2003_bb.png" width=320px>
-<br><img src="Arduino/UnipolarStepper/UnipolarStepper_bb.png" width=320px>
+<br><img src="UnipolarStepper-ULN2003_bb.png" width=320px>
+<br><img src="UnipolarStepper_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>ArduinoUno, LaunchPadF5529</pre></p>

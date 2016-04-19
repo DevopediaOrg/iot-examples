@@ -1,7 +1,7 @@
 # Blynk-RgbLed
 <table><tr>
 <td>
-<br><img src="NodeMCU/Blynk-RgbLed/Blynk-RgbLed_bb.png" width=320px>
+<br><img src="Blynk-RgbLed_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>NodeMCU</pre></p>
