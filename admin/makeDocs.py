@@ -45,11 +45,11 @@ Examples using other platforms such as Intel Edison, Broadcom WICED or ARM mbed 
         # Print the content extracted earlier
         for board in sorted(boards.keys()):
             projs = boards[board]
-            of.write('# {} ({:d} projects)\n'.format(board, len(projs)))
+            of.write('# {} ({:d} projects)\n'.format(board.replace('\\', '/'), len(projs)))
             of.write('<table><tr>\n');
             for proj in projs:
                 of.write('<tr>\n');
-                of.write('<td style="width:200px"><a href="{}{}">{}</a></td>\n'.format(board, proj[0], proj[0]));
+                of.write('<td style="width:200px"><a href="{}{}">{}</a></td>\n'.format(board.replace('\\', '/'), proj[0], proj[0]));
                 of.write('<td><pre>{}</pre></td>\n'.format(proj[1]));
                 of.write('</tr>\n');
             of.write('</table>\n\n');
