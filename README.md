@@ -232,15 +232,23 @@ with your token, Wi-Fi SSID and password.
 </tr>
 </table>
 
-# RaspberryPi/ (1 projects)
+# RaspberryPi/ (2 projects)
 <table><tr>
 <tr>
 <td style="width:200px"><a href="RaspberryPi/Blink-Fade">Blink-Fade</a></td>
 <td><pre>Use RPi.GPIO module to blink or fade an LED. Execution
 switches between the two whenever a push button is pressed
 and released. Fading uses software PWM since RPi.GPIO
-module does not support hardware PWM. Note that RPi.GPIO 
+module does not support hardware PWM. Note that RPi.GPIO
 is available by default on Raspbian Jessie.
+</pre></td>
+</tr>
+<tr>
+<td style="width:200px"><a href="RaspberryPi/WiringPi-PWM">WiringPi-PWM</a></td>
+<td><pre>Use WiringPi-Python binding of WiringPi C implementation.
+Source: https://github.com/WiringPi/WiringPi-Python
+This example shows HW PWM on GPIO18. Code shows the use
+of SW PWM, which is possible on any GPIO pin.
 </pre></td>
 </tr>
 </table>
