@@ -18,7 +18,7 @@
             module does not support hardware PWM. Note that RPi.GPIO
             is available by default on Raspbian Jessie.
   Date    : 10 Mar 2016
-  Boards  : Raspberry Pi 3
+  Boards  : Raspberry Pi 2, 3
   =====================================================================
 '''
 
@@ -54,18 +54,19 @@ def fade(pin, n=1000):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1 and sys.argv[1] == 'fade':
-        ToFade = True
-    else:
-        ToFade = False
+    if len(sys.argv) != 2 or sys.argv[1] not in ['blink', 'fade']:
+        print("Please provide a valid command for LED. Valid commands: blink, fade")
+        print("Syntax: {} (blink|fade)".format(sys.argv[0]))
+        exit(1)
 
+    ledcmd = sys.argv[1]
     LedPin = 7 # GPIO7 for board numbering; GPIO4 for BCM numbering
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(LedPin, GPIO.OUT)
 
     try:
         while True:
-            if ToFade:
+            if ledcmd == 'blink':
                 blink(LedPin)
             else:
                 fade(LedPin)
