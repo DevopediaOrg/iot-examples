@@ -1,6 +1,7 @@
 # blink_fade
 <table><tr>
 <td>
+<br><img src="Blink-Fade_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>Raspberry Pi 2, 3</pre></p>

@@ -1,6 +1,8 @@
 # LM35
 <table><tr>
 <td>
+<br><img src="LM35-7Segx3-LaunchPadF5529_bb.png" width=320px>
+<br><img src="LM35-7Segx3_bb.png" width=320px>
 <br><img src="LM35-LaunchPadF5529_bb.png" width=320px>
 <br><img src="LM35_bb.png" width=320px>
 </td>

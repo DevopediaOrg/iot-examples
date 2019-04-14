@@ -17,7 +17,7 @@ Purpose : Use WiringPi-Python binding of WiringPi C implementation.
             This example shows HW PWM on GPIO18. Code shows the use
             of SW PWM, which is possible on any GPIO pin.
 Date    : 13 Jun 2017
-Boards  : Raspberry Pi 3
+Boards  : Raspberry Pi 2, 3
 =====================================================================
 '''
 

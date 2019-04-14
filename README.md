@@ -396,7 +396,7 @@ the ThingSpeak IoT cloud. MQTT is used.
 <table><tr>
 <tr><td colspan=2><h3>3. WiringPi-PWM</h3></td></tr>
 <tr>
-<td style="width:200px"><a href="RaspberryPi/WiringPi-PWM">WiringPi-PWM</a></td>
+<td style="width:200px"><a href="RaspberryPi/WiringPi-PWM">wiringpi_pwm</a></td>
 <td><pre>Use WiringPi-Python binding of WiringPi C implementation.
 Source: https://github.com/WiringPi/WiringPi-Python
 This example shows HW PWM on GPIO18. Code shows the use

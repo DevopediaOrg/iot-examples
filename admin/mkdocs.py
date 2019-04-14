@@ -64,24 +64,23 @@ Examples using other platforms such as Intel Edison, Broadcom WICED or ARM mbed 
                 of.write('</table>\n\n')
 
 
-def get_project_fields(sketch, images):
-    with open(sketch, 'r') as sk:
-        content = sk.read()
+def get_project_fields(fname, images):
+    with open(fname, 'r') as f:
+        content = f.read()
 
-    # Extract fields from sketch content
+    # Extract fields from file content
     found = re.findall(r'Purpose\s*:\s*(.*?)Date\s*:\s*.*?Boards\s*:\s*(.*?)\n', content, re.S)
     if not found: return None
 
     purpose, boards = found[0]
     purpose = re.sub(r'\n\s*', r'\n', purpose) # remove leading spaces in each line
-    name = os.path.splitext(os.path.basename(sketch))[0]
-    path = os.path.dirname(sketch)
+    name = os.path.splitext(os.path.basename(fname))[0]
+    path = os.path.dirname(fname)
 
-    # Filter relevant images for this sketch
-    prefix = sketch[:-4:]
-    skimgs = [x for x in images if prefix in x]
+    # Filter relevant images for this project
+    imgs = [x for x in images if path in x]
 
-    return dict(zip(('name', 'path', 'purpose', 'boards', 'images'), (name, path, purpose, boards, skimgs)))
+    return dict(zip(('name', 'path', 'purpose', 'boards', 'images'), (name, path, purpose, boards, imgs)))
 
 
 def append_project_summary(boards, board, fields):
