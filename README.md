@@ -357,22 +357,51 @@ with your token, Wi-Fi SSID and password.
 </tr>
 </table>
 
-# RaspberryPi/ (3 projects)
+# RaspberryPi/ (5 projects)
 <table><tr>
 <tr><td colspan=2><h3>1. Blink-Fade</h3></td></tr>
 <tr>
 <td style="width:200px"><a href="RaspberryPi/Blink-Fade">blink_fade</a></td>
-<td><pre>Use RPi.GPIO module to blink or fade an LED. Execution
-switches between the two whenever a push button is pressed
-and released. Fading uses software PWM since RPi.GPIO
-module does not support hardware PWM. Note that RPi.GPIO
-is available by default on Raspbian Jessie.
+<td><pre>Use RPi.GPIO module to blink or fade an LED. 
+Fading uses software PWM since RPi.GPIO module does not
+support hardware PWM. Note that RPi.GPIO is available by
+default on Raspbian Jessie and Stretch.
+</pre></td>
+</tr>
+<tr>
+<td style="width:200px"><a href="RaspberryPi/Blink-Fade">toggle_uart</a></td>
+<td><pre>Read commands from UART to control LED state.
+Use gpiozero module to control the LED.
 </pre></td>
 </tr>
 </table>
 
 <table><tr>
-<tr><td colspan=2><h3>2. LM35-ADC</h3></td></tr>
+<tr><td colspan=2><h3>2. LCD-Dashboard</h3></td></tr>
+<tr>
+<td style="width:200px"><a href="RaspberryPi/LCD-Dashboard">lcd_dashboard</a></td>
+<td><pre>We use tkinter package to display a GUI window on a 3.5"
+480x320 LCD display from Waveshare.
+App shows current time, Devopedia logo, and the latest
+tech news. News is pulled via a free REST API service and 
+it's use requires an API key. The key is expected to be
+defined in an environment variable NEWS_API_KEY.
+</pre></td>
+</tr>
+</table>
+
+<table><tr>
+<tr><td colspan=2><h3>3. LED-PushButton</h3></td></tr>
+<tr>
+<td style="width:200px"><a href="RaspberryPi/LED-PushButton">led_pushbutton</a></td>
+<td><pre>Use GPIO Zero module to control an LED. LED state toggles
+whenever a push button is pressed and released.
+</pre></td>
+</tr>
+</table>
+
+<table><tr>
+<tr><td colspan=2><h3>4. LM35-ADC</h3></td></tr>
 <tr>
 <td style="width:200px"><a href="RaspberryPi/LM35-ADC">lm35_adc</a></td>
 <td><pre>Interface Raspberry Pi with MCP3008 for ADC functionality.
@@ -394,7 +423,7 @@ the ThingSpeak IoT cloud. MQTT is used.
 </table>
 
 <table><tr>
-<tr><td colspan=2><h3>3. WiringPi-PWM</h3></td></tr>
+<tr><td colspan=2><h3>5. WiringPi-PWM</h3></td></tr>
 <tr>
 <td style="width:200px"><a href="RaspberryPi/WiringPi-PWM">wiringpi_pwm</a></td>
 <td><pre>Use WiringPi-Python binding of WiringPi C implementation.

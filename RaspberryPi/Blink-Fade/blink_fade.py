@@ -12,11 +12,10 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
   ---------------------------------------------------------------------
-  Purpose : Use RPi.GPIO module to blink or fade an LED. Execution
-            switches between the two whenever a push button is pressed
-            and released. Fading uses software PWM since RPi.GPIO
-            module does not support hardware PWM. Note that RPi.GPIO
-            is available by default on Raspbian Jessie.
+  Purpose : Use RPi.GPIO module to blink or fade an LED. 
+            Fading uses software PWM since RPi.GPIO module does not
+            support hardware PWM. Note that RPi.GPIO is available by
+            default on Raspbian Jessie and Stretch.
   Date    : 10 Mar 2016
   Boards  : Raspberry Pi 2, 3
   =====================================================================
