@@ -1,23 +1,23 @@
 '''=====================================================================
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
----------------------------------------------------------------------
-Purpose : Use WiringPi-Python binding of WiringPi C implementation.
-            Source: https://github.com/WiringPi/WiringPi-Python
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ---------------------------------------------------------------------
+  Purpose : Use WiringPi-Python binding of WiringPi C implementation.
+            See https://github.com/WiringPi/WiringPi-Python
             This example shows HW PWM on GPIO18. Code shows the use
             of SW PWM, which is possible on any GPIO pin.
-Date    : 13 Jun 2017
-Boards  : Raspberry Pi 2, 3
+  Date    : 13 Jun 2017
+  Boards  : Raspberry Pi 2, 3
 =====================================================================
 '''
 

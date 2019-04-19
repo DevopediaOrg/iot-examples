@@ -357,7 +357,7 @@ with your token, Wi-Fi SSID and password.
 </tr>
 </table>
 
-# RaspberryPi/ (5 projects)
+# RaspberryPi/ (6 projects)
 <table><tr>
 <tr><td colspan=2><h3>1. Blink-Fade</h3></td></tr>
 <tr>
@@ -423,11 +423,27 @@ the ThingSpeak IoT cloud. MQTT is used.
 </table>
 
 <table><tr>
-<tr><td colspan=2><h3>5. WiringPi-PWM</h3></td></tr>
+<tr><td colspan=2><h3>5. SSD1306-BMP180</h3></td></tr>
+<tr>
+<td style="width:200px"><a href="RaspberryPi/SSD1306-BMP180">ssd1306_bmp180</a></td>
+<td><pre>Use BMP180 to obtain three sensor readings: temperature,
+barometric pressure and altitude. BMP180 uses an I2C 
+interface.
+Show these readings on SSD1306 OLED display. This uses an
+SPI interface.
+RPI is used with the WaveShare Pioneer600 that contains
+both BM180 and SSD1306. Code is adapted from examples at
+https://www.waveshare.com/wiki/File:Pioneer600-Code.tar.gz
+</pre></td>
+</tr>
+</table>
+
+<table><tr>
+<tr><td colspan=2><h3>6. WiringPi-PWM</h3></td></tr>
 <tr>
 <td style="width:200px"><a href="RaspberryPi/WiringPi-PWM">wiringpi_pwm</a></td>
 <td><pre>Use WiringPi-Python binding of WiringPi C implementation.
-Source: https://github.com/WiringPi/WiringPi-Python
+See https://github.com/WiringPi/WiringPi-Python
 This example shows HW PWM on GPIO18. Code shows the use
 of SW PWM, which is possible on any GPIO pin.
 </pre></td>
