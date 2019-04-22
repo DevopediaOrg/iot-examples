@@ -1,6 +1,7 @@
 # lm35_adc
 <table><tr>
 <td>
+<br><img src="LM35-ADC_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>Raspberry Pi 2, 3</pre></p>
@@ -16,6 +17,7 @@ the ThingSpeak IoT cloud. REST API is used.
 # lm35_adc_mqtt
 <table><tr>
 <td>
+<br><img src="LM35-ADC_bb.png" width=320px>
 </td>
 <td>
 <b>Boards</b><p><pre>Raspberry Pi 2, 3</pre></p>

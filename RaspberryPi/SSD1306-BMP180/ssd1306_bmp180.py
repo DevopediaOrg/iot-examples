@@ -20,6 +20,8 @@
             RPI is used with the WaveShare Pioneer600 that contains
             both BM180 and SSD1306. Code is adapted from examples at
             https://www.waveshare.com/wiki/File:Pioneer600-Code.tar.gz
+            For this example, install Python packages (via pip3):
+            smbus, pillow
   Date    : 19 Apr 2019
   Boards  : Raspberry Pi 2, 3
   =====================================================================

@@ -1,2 +1,2 @@
 all:
-    cc -o pwm WiringPi-PWM.c -lthread -lwiringPi
+    gcc -o pwm WiringPi-PWM.c -Wall -lwiringPi

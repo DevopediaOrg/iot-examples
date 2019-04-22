@@ -14,8 +14,11 @@
   ---------------------------------------------------------------------
   Purpose : Use WiringPi-Python binding of WiringPi C implementation.
             See https://github.com/WiringPi/WiringPi-Python
-            This example shows HW PWM on GPIO18. Code shows the use
-            of SW PWM, which is possible on any GPIO pin.
+            This example shows HW PWM on GPIO18. To use HW PWM, run 
+            as "sudo python3 wiring_pwm.py" 
+            Code also shows the use of SW PWM, which is possible on
+            any GPIO pin. To use SW PWM, run as 
+            "python3 wiring_pwm.py sw"
   Date    : 13 Jun 2017
   Boards  : Raspberry Pi 2, 3
 =====================================================================
@@ -27,17 +30,20 @@ from itertools import chain
 import wiringpi
 
 
-def hw_pwm(pin=18, n=1000):
-    wiringpi.pinMode(pin, 2)
+def hw_pwm(n=1000):
+    # Official WiringPi C API says support on only GPIO18
+    # :however, found to work (in WiringPi Python) with other 
+    #  HW-PWM pins GPIO12, GPIO13, GPIO19
+    pin = 18
+    wiringpi.pinMode(pin, wiringpi.PWM_OUTPUT)
     for _ in range(n):
-        for dc in chain(range(0, 101, 5), range(100, -1, -5)):
-            wiringpi.pwmWrite(pin, dc)
+        for val in chain(range(0, 1024, 50), range(1023, -1, -50)):
+            wiringpi.pwmWrite(pin, val)
             time.sleep(0.05)
 
 
 def sw_pwm(pin, n=1000):
-    # TODO Supposed to work on any GPIO ping but works only on GPIO18
-    wiringpi.pinMode(pin, 1)
+    wiringpi.pinMode(pin, wiringpi.OUTPUT)
     wiringpi.softPwmCreate(pin, 0, 100)
     for _ in range(n):
         for dc in chain(range(0, 101, 5), range(100, -1, -5)):

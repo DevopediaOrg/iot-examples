@@ -357,9 +357,23 @@ with your token, Wi-Fi SSID and password.
 </tr>
 </table>
 
-# RaspberryPi/ (6 projects)
+# RaspberryPi/ (7 projects)
 <table><tr>
-<tr><td colspan=2><h3>1. Blink-Fade</h3></td></tr>
+<tr><td colspan=2><h3>1. ADXL345-I2C</h3></td></tr>
+<tr>
+<td style="width:200px"><a href="RaspberryPi/ADXL345-I2C">adxl345_i2c</a></td>
+<td><pre>Interface Raspberry Pi with ADXL345 accelerometer via I2C.
+We use the Adafruit Python ADXL345 for this purpose.
+This can installed with "sudo pip3 install adafruit-adxl345"
+See https://github.com/adafruit/Adafruit_Python_ADXL345
+Ensure that I2C is enabled via raspi-config.
+Ensure that line i2c-dev is present in file /etc/modules
+</pre></td>
+</tr>
+</table>
+
+<table><tr>
+<tr><td colspan=2><h3>2. Blink-Fade</h3></td></tr>
 <tr>
 <td style="width:200px"><a href="RaspberryPi/Blink-Fade">blink_fade</a></td>
 <td><pre>Use RPi.GPIO module to blink or fade an LED. 
@@ -377,7 +391,7 @@ Use gpiozero module to control the LED.
 </table>
 
 <table><tr>
-<tr><td colspan=2><h3>2. LCD-Dashboard</h3></td></tr>
+<tr><td colspan=2><h3>3. LCD-Dashboard</h3></td></tr>
 <tr>
 <td style="width:200px"><a href="RaspberryPi/LCD-Dashboard">lcd_dashboard</a></td>
 <td><pre>We use tkinter package to display a GUI window on a 3.5"
@@ -391,7 +405,7 @@ defined in an environment variable NEWS_API_KEY.
 </table>
 
 <table><tr>
-<tr><td colspan=2><h3>3. LED-PushButton</h3></td></tr>
+<tr><td colspan=2><h3>4. LED-PushButton</h3></td></tr>
 <tr>
 <td style="width:200px"><a href="RaspberryPi/LED-PushButton">led_pushbutton</a></td>
 <td><pre>Use GPIO Zero module to control an LED. LED state toggles
@@ -401,7 +415,7 @@ whenever a push button is pressed and released.
 </table>
 
 <table><tr>
-<tr><td colspan=2><h3>4. LM35-ADC</h3></td></tr>
+<tr><td colspan=2><h3>5. LM35-ADC</h3></td></tr>
 <tr>
 <td style="width:200px"><a href="RaspberryPi/LM35-ADC">lm35_adc</a></td>
 <td><pre>Interface Raspberry Pi with MCP3008 for ADC functionality.
@@ -423,7 +437,7 @@ the ThingSpeak IoT cloud. MQTT is used.
 </table>
 
 <table><tr>
-<tr><td colspan=2><h3>5. SSD1306-BMP180</h3></td></tr>
+<tr><td colspan=2><h3>6. SSD1306-BMP180</h3></td></tr>
 <tr>
 <td style="width:200px"><a href="RaspberryPi/SSD1306-BMP180">ssd1306_bmp180</a></td>
 <td><pre>Use BMP180 to obtain three sensor readings: temperature,
@@ -434,18 +448,31 @@ SPI interface.
 RPI is used with the WaveShare Pioneer600 that contains
 both BM180 and SSD1306. Code is adapted from examples at
 https://www.waveshare.com/wiki/File:Pioneer600-Code.tar.gz
+For this example, install Python packages (via pip3):
+smbus, pillow
 </pre></td>
 </tr>
 </table>
 
 <table><tr>
-<tr><td colspan=2><h3>6. WiringPi-PWM</h3></td></tr>
+<tr><td colspan=2><h3>7. WiringPi-PWM</h3></td></tr>
+<tr>
+<td style="width:200px"><a href="RaspberryPi/WiringPi-PWM">WiringPi-PWM</a></td>
+<td><pre>Use WiringPi C library to fade an LED using hardware PWM.
+Compile as "gcc WiringPi-PWM.c -o pwm -Wall -lwiringPi"
+or use the Makefile, "make all"
+Run as "sudo ./pwm"
+</pre></td>
+</tr>
 <tr>
 <td style="width:200px"><a href="RaspberryPi/WiringPi-PWM">wiringpi_pwm</a></td>
 <td><pre>Use WiringPi-Python binding of WiringPi C implementation.
 See https://github.com/WiringPi/WiringPi-Python
-This example shows HW PWM on GPIO18. Code shows the use
-of SW PWM, which is possible on any GPIO pin.
+This example shows HW PWM on GPIO18. To use HW PWM, run 
+as "sudo python3 wiring_pwm.py" 
+Code also shows the use of SW PWM, which is possible on
+any GPIO pin. To use SW PWM, run as 
+"python3 wiring_pwm.py sw"
 </pre></td>
 </tr>
 </table>

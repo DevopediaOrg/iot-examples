@@ -117,19 +117,20 @@ def print_project(board, fields):
 # Find out the untracked git folders
 git_cmd = 'git ls-files --others --directory'
 untracked = subprocess.check_output(git_cmd.split(), universal_newlines=True).split('\n')
-boards = [b for b in sorted(glob.glob('*/')) if all(b!=u for u in untracked)] # only top-level tracked folders
+boards = [b.replace('\\', '/') for b in sorted(glob.glob('*/')) if all(b!=u for u in untracked)] # only top-level tracked folders
 delete_files(glob.glob('*/*/README.md'))
 
 # Descend and process each tracked folder
 for board in boards:
-    images = glob.glob(board+'**/*_bb.png')
+    images = [i.replace('\\', '/') for i in glob.glob(board+'**/*_bb.png')]
 
-    for sketch in sorted(glob.iglob(board+'**/*')):
+    sketches = [s.replace('\\', '/') for s in glob.iglob(board+'**/*')]
+    for sketch in sorted(sketches):
         if os.path.dirname(sketch)+'/' in untracked:
             continue
 
-        # accept Arduino sketches or Python code (RaspberryPi)
-        if os.path.splitext(sketch)[1] in ['.ino', '.py']:
+        # accept Arduino sketches, Python or C code (RaspberryPi)
+        if os.path.splitext(sketch)[1] in ['.ino', '.py', '.c']:
             fields = get_project_fields(sketch, images)
             if fields is None: # helper file, not main project file
                 continue
