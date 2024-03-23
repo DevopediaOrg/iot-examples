@@ -20,7 +20,7 @@
 */
 
 // Comment/uncomment as suitable for your hardware
-// #define LaunchPadF5529
+#define LaunchPadF5529
 
 #ifdef LaunchPadF5529
 #define VREF 3300 // mV
@@ -37,7 +37,9 @@ const int DIGIT1 = 5, DIGIT2 = 6, DIGIT3 = 7;
 #endif
 
 // Ref. http://en.wikipedia.org/wiki/Seven-segment_display
+// A abcdefgh configuration can be treated as gfedcba but shift bits from LSB to MSB!
 char ledCodes[] = {
+  //0x7E, 0x30, 0x6D, 0x79, 0x33, 0x5B, 0x5F, 0x70, 0x7F, 0x7B // abcdefgh configuration: 0-9
   0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F // gfedcba configuration: 0-9
 };
 
@@ -60,15 +62,16 @@ void setShiftRegister8bit(int code)
 
 void flashDigit(int signalOutput, int delayTime = 1)
 {
-  digitalWrite(signalOutput, LOW);
+  digitalWrite(signalOutput, LOW); // common cathode: turn on LED
   delay(delayTime);
-  digitalWrite(signalOutput, HIGH); 
+  digitalWrite(signalOutput, HIGH); // common cathode: turn off LED
 }
 
 void showDigit(int digitValue, int dot, int digitIndex)
 {
-    setShiftRegister8bit(ledCodes[digitValue] | dot<<7);
-    flashDigit(digitIndex, 5);
+  // All relevant segments are on at the same time  
+  setShiftRegister8bit(ledCodes[digitValue] | dot<<7);
+  flashDigit(digitIndex, 5);
 }
 
 void setup()
@@ -93,6 +96,7 @@ void setup()
   digitalWrite(DIGIT3, HIGH);
   
   // Flash all segments of all digits
+  // Caution: potentially high current draw!
   setShiftRegister8bit(0xFF);
   digitalWrite(DIGIT1, LOW);
   digitalWrite(DIGIT2, LOW); 
@@ -103,6 +107,7 @@ void setup()
   digitalWrite(DIGIT3, HIGH);  
   
   // Flash each segment of each digit one at a time
+  // Flashing in sequence abcdefgh
   for (int i = 0; i < 8; i++)
   {
     setShiftRegister8bit(1<<i);
