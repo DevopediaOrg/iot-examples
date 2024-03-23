@@ -20,7 +20,7 @@
 */
 
 // Comment/uncomment as suitable for your hardware
-#define LaunchPadF5529
+//#define LaunchPadF5529
 
 #ifdef LaunchPadF5529
 #define VREF 3300 // mV
