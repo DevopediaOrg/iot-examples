@@ -9,7 +9,7 @@ A collection of examples for getting started in the Internet of Things (IoT). Th
 
 Examples using other platforms such as Intel Edison, Broadcom WICED or ARM mbed may be added in future.
 
-# Arduino/ (28 projects)
+# Arduino/ (29 projects)
 <table><tr>
 <tr><td colspan=2><h3>1. ADXL345I2C</h3></td></tr>
 <tr>
@@ -308,7 +308,20 @@ are typed.
 </table>
 
 <table><tr>
-<tr><td colspan=2><h3>28. UnipolarStepper</h3></td></tr>
+<tr><td colspan=2><h3>28. Tetris-FC16</h3></td></tr>
+<tr>
+<td style="width:200px"><a href="Arduino/Tetris-FC16">Tetris-FC16</a></td>
+<td><pre>Tetris game is implemented. Display uses the MAX7219 FC16
+module that cascades four 8x8 dot matrix displays. For user
+control, we use four pushbuttons. The displays should be 
+powered by an independent power supply and not from the
+Arduino.
+</pre></td>
+</tr>
+</table>
+
+<table><tr>
+<tr><td colspan=2><h3>29. UnipolarStepper</h3></td></tr>
 <tr>
 <td style="width:200px"><a href="Arduino/UnipolarStepper">UnipolarStepper</a></td>
 <td><pre>Drive the unipolar stepper motor 28-BYJ48 that has 5 wires.
